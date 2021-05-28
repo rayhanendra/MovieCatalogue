@@ -12,6 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieCatalogue">
         <activity
+            android:name=".ui.splash.SplashScreenActivity"
+            android:theme="@style/Theme.MovieCatalogue.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ui.tvshow.detailtvshow.DetailTvShowActivity"
             android:label="@string/title_activity_detail_tvshow"
             android:parentActivityName=".ui.main.MainActivity"
@@ -32,11 +41,6 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:label="@string/movie_catalogue">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

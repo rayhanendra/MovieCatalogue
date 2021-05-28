@@ -32,7 +32,7 @@ class MovieFragment : Fragment() {
             val movieAdapter = MovieAdapter()
             movieAdapter.setMovies(movies)
 
-            with(fragmentMoviesBinding.rvMovies) {
+            with(fragmentMoviesBinding.rvMovie) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)
                 adapter = movieAdapter

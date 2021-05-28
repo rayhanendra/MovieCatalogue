@@ -22,13 +22,13 @@ class MainActivityTest {
 
     @Test
     fun loadMovies() {
-        onView(withId(R.id.rv_movies)).check(matches(isDisplayed()))
-        onView(withId(R.id.rv_movies)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size))
+        onView(withId(R.id.rv_movie)).check(matches(isDisplayed()))
+        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.scrollToPosition<RecyclerView.ViewHolder>(dummyMovie.size))
     }
 
     @Test
     fun loadDetailMovie(){
-        onView(withId(R.id.rv_movies)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
+        onView(withId(R.id.rv_movie)).perform(RecyclerViewActions.actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
         onView(withId(R.id.tv_item_title)).check(matches(isDisplayed()))
         onView(withId(R.id.tv_item_title)).check(matches(withText(dummyMovie[0].title)))
         onView(withId(R.id.tv_item_desc)).check(matches(isDisplayed()))

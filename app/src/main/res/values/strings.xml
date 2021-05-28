@@ -10,4 +10,5 @@
     <string name="genre">Genre</string>
     <string name="rating">rating</string>
     <string name="movie_catalogue">Movie Catalogue</string>
+    <string name="splash_screem">Splash Screem</string>
 </resources>
