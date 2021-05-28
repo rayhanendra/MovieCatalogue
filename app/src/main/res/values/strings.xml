@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MovieCatalogue</string>
+    <string name="title_activity_detail_movie">Movie Detail</string>
+    <string name="title_activity_detail_tvshow">TV Show Detail</string>
+
+    <string name="title">Title</string>
+    <string name="desc">Description</string>
+    <string name="movies">Movies</string>
+    <string name="tv_shows">TV Shows</string>
+    <string name="genre">Genre</string>
+    <string name="rating">rating</string>
+    <string name="movie_catalogue">Movie Catalogue</string>
+</resources>
