@@ -174,7 +174,7 @@ object DataDummy {
                 "s06",
                 "Jupiter's Legacy (2021)",
                 "As the world's first generation of superheroes (who received their powers in the 1930s) become the revered elder guard in the present, their superpowered children struggle to live up to the legendary feats of their parents.",
-                "Sci-Fi & Fantasy, Action & Adventure, Drama, Mystery\n",
+                "Sci-Fi & Fantasy, Action & Adventure, Drama, Mystery",
                 74,
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/9yxep7oJdkj3Pla9TD9gKflRApY.jpg"
             )
@@ -223,7 +223,6 @@ object DataDummy {
                 "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qk3eQ8jW4opJ48gFWYUXWaMT4l.jpg"
             )
         )
-
         return tvShows
     }
 }

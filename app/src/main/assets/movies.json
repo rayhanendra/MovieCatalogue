@@ -1,0 +1,84 @@
+{
+  "movies": [
+    {
+      "movieId" : "m01",
+      "title" : "Army of the Dead (2021)",
+      "description" : "Following a zombie outbreak in Las Vegas, a group of mercenaries take the ultimate gamble: venturing into the quarantine zone to pull off the greatest heist ever attempted.",
+      "genre" : "Action, Horror, Thriller",
+      "rating" : 67,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/x3taBaWfRzw1NIKhEPpKPwKBAOC.jpg"
+    },
+    {
+      "movieId" : "m02",
+      "title" : "F9 (2021)",
+      "description" : "Dominic Toretto is leading a quiet life off the grid with Letty and his son, little Brian, but they know that danger always lurks just over their peaceful horizon. This time, that threat will force Dom to confront the sins of his past if he’s going to save those he loves most. His crew joins together to stop a world-shattering plot led by the most skilled assassin and high-performance driver they’ve ever encountered: a man who also happens to be Dom’s forsaken brother, Jakob.",
+      "genre" : "Action, Thriller, Crime",
+      "rating" : 80,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/qIicLxr7B7gIt5hxZxo423BJLlK.jpg"
+    },
+    {
+      "movieId" : "m03",
+      "title" : "Zack Snyder's Justice League (2021)",
+      "description" : "Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.",
+      "genre" : "Action, Adventure, Fantasy, Science Fiction",
+      "rating" : 85,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/tnAuB8q5vv7Ax9UAEje5Xi4BXik.jpg"
+    },
+    {
+      "movieId" : "m04",
+      "title" : "Eternals (2021)",
+      "description" : "The Eternals are a team of ancient aliens who have been living on Earth in secret for thousands of years. When an unexpected tragedy forces them out of the shadows, they are forced to reunite against mankind’s most ancient enemy, the Deviants.",
+      "genre" : "Action, Adventure, Fantasy",
+      "rating" : 0,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6AdXwFTRTAzggD2QUTt5B7JFGKL.jpg"
+    },
+    {
+      "movieId" : "m05",
+      "title" : "Mortal Kombat (2021)",
+      "description" : "Washed-up MMA fighter Cole Young, unaware of his heritage, and hunted by Emperor Shang Tsung's best warrior, Sub-Zero, seeks out and trains with Earth's greatest champions as he prepares to stand against the enemies of Outworld in a high stakes battle for the universe.",
+      "genre" : "Action, Fantasy, Adventure",
+      "rating" : 76,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/nkayOAUBUu4mMvyNf9iHSUiPjF1.jpg"
+    },
+    {
+      "movieId" : "m06",
+      "title" : "Raya and the Last Dragon (2021)",
+      "description" : "Long ago, in the fantasy world of Kumandra, humans and dragons lived together in harmony. But when an evil force threatened the land, the dragons sacrificed themselves to save humanity. Now, 500 years later, that same evil has returned and it’s up to a lone warrior, Raya, to track down the legendary last dragon to restore the fractured land and its divided people.",
+      "genre" : "Animation, Adventure, Fantasy, Family, Action",
+      "rating" : 82,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg"
+    },
+    {
+      "movieId" : "m07",
+      "title" : "Godzilla vs. Kong (2021)",
+      "description" : "In a time when monsters walk the Earth, humanity’s fight for its future sets Godzilla and Kong on a collision course that will see the two most powerful forces of nature on the planet collide in a spectacular battle for the ages.",
+      "genre" : "Action, Science Fiction",
+      "rating" : 81,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/pgqgaUx1cJb5oZQQ5v0tNARCeBp.jpg"
+    },
+    {
+      "movieId" : "m08",
+      "title" : "Cruella (2021)",
+      "description" : "In 1970s London amidst the punk rock revolution, a young grifter named Estella is determined to make a name for herself with her designs. She befriends a pair of young thieves who appreciate her appetite for mischief, and together they are able to build a life for themselves on the London streets. One day, Estella’s flair for fashion catches the eye of the Baroness von Hellman, a fashion legend who is devastatingly chic and terrifyingly haute. But their relationship sets in motion a course of events and revelations that will cause Estella to embrace her wicked side and become the raucous, fashionable and revenge-bent Cruella.",
+      "genre" : "Comedy, Crime",
+      "rating" : 77,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/wToO8opxkGwKgSfJ1JK8tGvkG6U.jpg"
+    },
+    {
+      "movieId" : "m09",
+      "title" : "Demon Slayer -Kimetsu no Yaiba- The Movie: Mugen Train (2020)",
+      "description" : "Tanjirō Kamado, joined with Inosuke Hashibira, a boy raised by boars who wears a boar's head, and Zenitsu Agatsuma, a scared boy who reveals his true power when he sleeps, boards the Infinity Train on a new mission with the Fire Hashira, Kyōjurō Rengoku, to defeat a demon who has been tormenting the people and killing the demon slayers who oppose it!",
+      "genre" : "Animation, Action, Adventure, Fantasy, Drama",
+      "rating" : 84,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/h8Rb9gBr48ODIwYUttZNYeMWeUU.jpg"
+    },
+    {
+      "movieId" : "m10",
+      "title" : "The Mitchells vs. The Machines (2021)",
+      "description" : "A quirky, dysfunctional family's road trip is upended when they find themselves in the middle of the robot apocalypse and suddenly become humanity's unlikeliest last hope.",
+      "genre" : "Animation, Adventure, Comedy, Family, Science Fiction",
+      "rating" : 80,
+      "imagePath" : "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/mI2Di7HmskQQ34kz0iau6J1vr70.jpg"
+    }
+  ]
+}

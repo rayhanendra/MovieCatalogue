@@ -7,5 +7,5 @@ data class MovieEntity (
     var genre: String,
     var rating: Int,
     var imagePath: String
-    )
+)
 
