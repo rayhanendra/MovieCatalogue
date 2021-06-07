@@ -2,6 +2,7 @@ package com.example.moviecatalogue.ui.movie.detailmovie
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -9,6 +10,7 @@ import com.example.moviecatalogue.R
 import com.example.moviecatalogue.data.MovieEntity
 import com.example.moviecatalogue.databinding.ActivityDetailMovieBinding
 import com.example.moviecatalogue.databinding.ContentDetailMovieBinding
+import com.example.moviecatalogue.viewmodel.ViewModelFactory
 
 class DetailMovieActivity : AppCompatActivity() {
 
@@ -29,14 +31,23 @@ class DetailMovieActivity : AppCompatActivity() {
         setSupportActionBar(activityDetailMovieBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailMovieViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailMovieViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
             val movieId = extras.getString(EXTRA_MOVIE)
             if (movieId != null) {
+
+                activityDetailMovieBinding.progressBar.visibility = View.VISIBLE
+                activityDetailMovieBinding.content.visibility = View.INVISIBLE
+
                 viewModel.setSelectedMovie(movieId)
-                populateMovie(viewModel.getMovie() as MovieEntity)
+                viewModel.getMovie().observe(this, { movie ->
+                    activityDetailMovieBinding.progressBar.visibility = View.GONE
+                    activityDetailMovieBinding.content.visibility = View.VISIBLE
+                    populateMovie(movie)
+                })
             }
         }
     }

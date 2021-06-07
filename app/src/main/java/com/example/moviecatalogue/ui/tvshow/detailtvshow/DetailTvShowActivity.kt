@@ -2,6 +2,7 @@ package com.example.moviecatalogue.ui.tvshow.detailtvshow
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -9,6 +10,7 @@ import com.example.moviecatalogue.R
 import com.example.moviecatalogue.data.TvShowEntity
 import com.example.moviecatalogue.databinding.ActivityDetailTvShowBinding
 import com.example.moviecatalogue.databinding.ContentDetailTvShowBinding
+import com.example.moviecatalogue.viewmodel.ViewModelFactory
 
 class DetailTvShowActivity : AppCompatActivity() {
 
@@ -29,14 +31,22 @@ class DetailTvShowActivity : AppCompatActivity() {
         setSupportActionBar(activityDetailTvShowBinding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailTvShowViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailTvShowViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
             val tvShowId = extras.getString(EXTRA_TVSHOW)
             if (tvShowId !=null) {
+
+                activityDetailTvShowBinding.progressBar.visibility = View.VISIBLE
+                activityDetailTvShowBinding.content.visibility = View.INVISIBLE
+
                 viewModel.setSelectedTvShow(tvShowId)
-                populateTvShow(viewModel.getTvShow() as TvShowEntity)
+                viewModel.getTvShow().observe(this, { tvShow ->
+                    activityDetailTvShowBinding.progressBar.visibility = View.GONE
+                    activityDetailTvShowBinding.content.visibility = View.VISIBLE
+                    populateTvShow(tvShow)})
             }
         }
     }
