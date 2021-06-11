@@ -3,6 +3,8 @@ package com.example.moviecatalogue.data
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.moviecatalogue.data.source.MovieCatalogueDataSource
+import com.example.moviecatalogue.data.source.local.entity.MovieEntity
+import com.example.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.example.moviecatalogue.data.source.remote.RemoteDataSource
 import com.example.moviecatalogue.data.source.remote.response.MovieResponse
 import com.example.moviecatalogue.data.source.remote.response.TvShowResponse
@@ -49,7 +51,7 @@ class FakeMovieCatalogueRepository (private val remoteDataSource: RemoteDataSour
         return tvShowResults
     }
 
-    fun getMovieDetails(movieId: String): LiveData<MovieEntity> {
+    fun getMovieDetails(movieId: MutableLiveData<String>): LiveData<MovieEntity> {
         val movieResult = MutableLiveData<MovieEntity>()
         remoteDataSource.getMovieDetails(movieId, object : RemoteDataSource.LoadMovieDetailsCallback {
             override fun onMovieDetailsReceived(movieResponses: List<MovieResponse>) {

@@ -3,14 +3,16 @@ package com.example.moviecatalogue.ui.tvshow.detailtvshow
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.moviecatalogue.R
-import com.example.moviecatalogue.data.TvShowEntity
+import com.example.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.example.moviecatalogue.databinding.ActivityDetailTvShowBinding
 import com.example.moviecatalogue.databinding.ContentDetailTvShowBinding
 import com.example.moviecatalogue.viewmodel.ViewModelFactory
+import com.example.moviecatalogue.vo.Status
 
 class DetailTvShowActivity : AppCompatActivity() {
 
@@ -39,15 +41,30 @@ class DetailTvShowActivity : AppCompatActivity() {
             val tvShowId = extras.getString(EXTRA_TVSHOW)
             if (tvShowId !=null) {
 
-                activityDetailTvShowBinding.progressBar.visibility = View.VISIBLE
-                activityDetailTvShowBinding.content.visibility = View.INVISIBLE
-
                 viewModel.setSelectedTvShow(tvShowId)
+
                 viewModel.getTvShow().observe(this, { tvShow ->
-                    activityDetailTvShowBinding.progressBar.visibility = View.GONE
-                    activityDetailTvShowBinding.content.visibility = View.VISIBLE
-                    populateTvShow(tvShow)})
-            }
+                    if (tvShow != null) {
+                        when (tvShow.status) {
+                            Status.LOADING ->
+                                activityDetailTvShowBinding.progressBar.visibility = View.VISIBLE
+                                activityDetailTvShowBinding.content.visibility = View.INVISIBLE
+
+                            Status.SUCCESS ->
+                                activityDetailTvShowBinding.progressBar.visibility = View.GONE
+                                activityDetailTvShowBinding.content.visibility = View.VISIBLE
+
+                                populateTvShow(tvShow)
+
+
+                            Status.ERROR -> {
+                                activityDetailTvShowBinding.progressBar.visibility = View.GONE
+                                activityDetailTvShowBinding.content.visibility = View.VISIBLE
+                                Toast.makeText(applicationContext, "Something is error", Toast.LENGTH_SHORT).show()
+                            }
+                        }
+                }
+            })
         }
     }
 
@@ -64,4 +81,4 @@ class DetailTvShowActivity : AppCompatActivity() {
                 .error(R.drawable.ic_error))
             .into(contentDetailTvShowBinding.imagePoster)
     }
-}
+}+

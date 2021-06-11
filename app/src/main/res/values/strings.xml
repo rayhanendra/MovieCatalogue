@@ -11,4 +11,6 @@
     <string name="rating">rating</string>
     <string name="movie_catalogue">Movie Catalogue</string>
     <string name="splash_screem">Splash Screem</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

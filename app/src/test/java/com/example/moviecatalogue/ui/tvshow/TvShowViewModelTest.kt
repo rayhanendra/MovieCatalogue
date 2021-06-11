@@ -3,7 +3,7 @@ package com.example.moviecatalogue.ui.tvshow
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.moviecatalogue.data.TvShowEntity
+import com.example.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.example.moviecatalogue.data.source.MovieCatalogueRepository
 import com.example.moviecatalogue.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify

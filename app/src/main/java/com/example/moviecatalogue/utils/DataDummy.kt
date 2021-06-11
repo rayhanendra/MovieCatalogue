@@ -1,7 +1,7 @@
 package com.example.moviecatalogue.utils
 
-import com.example.moviecatalogue.data.MovieEntity
-import com.example.moviecatalogue.data.TvShowEntity
+import com.example.moviecatalogue.data.source.local.entity.MovieEntity
+import com.example.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.example.moviecatalogue.data.source.remote.response.MovieResponse
 import com.example.moviecatalogue.data.source.remote.response.TvShowResponse
 

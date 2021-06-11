@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieCatalogue">
+        <activity android:name=".ui.favorite.favoriteTvShow.FavoriteActivity"></activity>
         <activity
             android:name=".ui.splash.SplashScreenActivity"
             android:theme="@style/Theme.MovieCatalogue.NoActionBar">
@@ -40,8 +41,7 @@
         </activity>
         <activity
             android:name=".ui.main.MainActivity"
-            android:label="@string/movie_catalogue">
-        </activity>
+            android:label="@string/movie_catalogue"></activity>
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@ package com.example.moviecatalogue.ui.tvshow.detailtvshow
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import com.example.moviecatalogue.data.TvShowEntity
+import com.example.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.example.moviecatalogue.data.source.MovieCatalogueRepository
 import com.example.moviecatalogue.utils.DataDummy
 import com.nhaarman.mockitokotlin2.verify
@@ -12,9 +12,12 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import org.junit.Rule
+import org.junit.runner.RunWith
 import org.mockito.Mock
 import org.mockito.Mockito.`when`
+import org.mockito.junit.MockitoJUnitRunner
 
+@RunWith(MockitoJUnitRunner::class)
 class DetailTvShowViewModelTest {
     private lateinit var viewModel: DetailTvShowViewModel
     private var dummyTvShow = DataDummy.generateDummyTvShows()[0]

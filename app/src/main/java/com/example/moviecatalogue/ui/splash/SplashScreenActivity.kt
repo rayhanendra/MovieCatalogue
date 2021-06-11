@@ -17,7 +17,10 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        this.window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        this.window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
         this.setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
