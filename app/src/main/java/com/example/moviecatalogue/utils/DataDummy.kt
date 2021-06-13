@@ -16,7 +16,7 @@ object DataDummy {
                 "Following a zombie outbreak in Las Vegas, a group of mercenaries take the ultimate gamble: venturing into the quarantine zone to pull off the greatest heist ever attempted.",
                 "Action, Horror, Thriller",
                 67,
-                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/x3taBaWfRzw1NIKhEPpKPwKBAOC.jpg"
+                "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/x3taBaWfRzw1NIKhEPpKPwKBAOC.jpg",
             )
         )
         movies.add(

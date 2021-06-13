@@ -5,10 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviecatalogue.databinding.FragmentMoviesBinding
 import com.example.moviecatalogue.viewmodel.ViewModelFactory
+import com.example.moviecatalogue.vo.Status
 
 
 class MovieFragment : Fragment() {
@@ -33,13 +35,21 @@ class MovieFragment : Fragment() {
 
             val adapter = MovieAdapter()
 
-            fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
-            viewModel.getMovies().observe(this, { movies ->
-                fragmentMoviesBinding.progressBar.visibility = View.GONE
-                adapter.setMovies(movies)
-                adapter.notifyDataSetChanged()
+            viewModel.getMovies().observe(viewLifecycleOwner, { movies ->
+                if (movies != null) {
+                    when (movies.status) {
+                        Status.LOADING -> fragmentMoviesBinding.progressBar.visibility = View.VISIBLE
+                        Status.SUCCESS -> {
+                            fragmentMoviesBinding.progressBar.visibility = View.GONE
+                            adapter.submitList(movies.data)
+                        }
+                        Status.ERROR -> {
+                            fragmentMoviesBinding.progressBar.visibility = View.GONE
+                            Toast.makeText(context, "Something is error", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
             })
-
             with(fragmentMoviesBinding.rvMovie) {
                 layoutManager = LinearLayoutManager(context)
                 setHasFixedSize(true)

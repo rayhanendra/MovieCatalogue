@@ -6,7 +6,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "tvshowentities")
-class TvShowEntity (
+data class TvShowEntity (
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "tvShowId")
@@ -24,9 +24,10 @@ class TvShowEntity (
     @ColumnInfo(name = "rating")
     var rating: Int,
 
-    @ColumnInfo(name = "favorited")
-    var favorited: Boolean = false,
-
     @ColumnInfo(name = "imagePath")
-    var imagePath: String
+    var imagePath: String,
+
+    @ColumnInfo(name = "favorited")
+    var favorited: Boolean = false
+
 )

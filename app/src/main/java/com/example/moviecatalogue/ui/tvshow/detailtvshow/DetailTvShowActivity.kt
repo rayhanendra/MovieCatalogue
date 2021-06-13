@@ -21,6 +21,7 @@ class DetailTvShowActivity : AppCompatActivity() {
     }
 
     private lateinit var contentDetailTvShowBinding: ContentDetailTvShowBinding
+    private lateinit var tvShowEntity: TvShowEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,33 +40,22 @@ class DetailTvShowActivity : AppCompatActivity() {
         val extras = intent.extras
         if (extras != null) {
             val tvShowId = extras.getString(EXTRA_TVSHOW)
-            if (tvShowId !=null) {
+            if (tvShowId != null) {
+
+                activityDetailTvShowBinding.progressBar.visibility = View.VISIBLE
+                activityDetailTvShowBinding.content.visibility = View.INVISIBLE
 
                 viewModel.setSelectedTvShow(tvShowId)
-
                 viewModel.getTvShow().observe(this, { tvShow ->
-                    if (tvShow != null) {
-                        when (tvShow.status) {
-                            Status.LOADING ->
-                                activityDetailTvShowBinding.progressBar.visibility = View.VISIBLE
-                                activityDetailTvShowBinding.content.visibility = View.INVISIBLE
-
-                            Status.SUCCESS ->
-                                activityDetailTvShowBinding.progressBar.visibility = View.GONE
-                                activityDetailTvShowBinding.content.visibility = View.VISIBLE
-
-                                populateTvShow(tvShow)
-
-
-                            Status.ERROR -> {
-                                activityDetailTvShowBinding.progressBar.visibility = View.GONE
-                                activityDetailTvShowBinding.content.visibility = View.VISIBLE
-                                Toast.makeText(applicationContext, "Something is error", Toast.LENGTH_SHORT).show()
-                            }
-                        }
-                }
-            })
+                    activityDetailTvShowBinding.progressBar.visibility = View.GONE
+                    activityDetailTvShowBinding.content.visibility = View.VISIBLE
+                    tvShowEntity = tvShow
+                    tvShowEntity.favorited = tvShow.favorited
+                    populateTvShow(tvShow)
+                })
+            }
         }
+
     }
 
     private fun populateTvShow(tvShowEntity: TvShowEntity) {
@@ -81,4 +71,4 @@ class DetailTvShowActivity : AppCompatActivity() {
                 .error(R.drawable.ic_error))
             .into(contentDetailTvShowBinding.imagePoster)
     }
-}+
+}

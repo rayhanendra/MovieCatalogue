@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.moviecatalogue.R
 import com.example.moviecatalogue.data.source.local.entity.MovieEntity
+import com.example.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.example.moviecatalogue.databinding.ActivityDetailMovieBinding
 import com.example.moviecatalogue.databinding.ContentDetailMovieBinding
 import com.example.moviecatalogue.viewmodel.ViewModelFactory
@@ -19,6 +20,7 @@ class DetailMovieActivity : AppCompatActivity() {
     }
 
     private lateinit var contentDetailMovieBinding: ContentDetailMovieBinding
+    private lateinit var movieEntity: MovieEntity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +48,8 @@ class DetailMovieActivity : AppCompatActivity() {
                 viewModel.getMovie().observe(this, { movie ->
                     activityDetailMovieBinding.progressBar.visibility = View.GONE
                     activityDetailMovieBinding.content.visibility = View.VISIBLE
+                    movieEntity = movie
+                    movieEntity.favorited = movie.favorited
                     populateMovie(movie)
                 })
             }

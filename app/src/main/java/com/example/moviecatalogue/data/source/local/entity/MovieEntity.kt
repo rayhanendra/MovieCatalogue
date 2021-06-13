@@ -24,10 +24,11 @@ data class MovieEntity(
     @ColumnInfo(name = "rating")
     var rating: Int,
 
+    @ColumnInfo(name = "imagePath")
+    var imagePath: String,
+
     @ColumnInfo(name = "favorited")
     var favorited: Boolean = false,
 
-    @ColumnInfo(name = "imagePath")
-    var imagePath: String
 )
 
