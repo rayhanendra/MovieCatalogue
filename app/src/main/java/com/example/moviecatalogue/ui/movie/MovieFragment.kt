@@ -12,7 +12,6 @@ import com.example.moviecatalogue.databinding.FragmentMoviesBinding
 import com.example.moviecatalogue.viewmodel.ViewModelFactory
 import com.example.moviecatalogue.vo.Status
 
-
 class MovieFragment : Fragment() {
 
     private lateinit var fragmentMoviesBinding: FragmentMoviesBinding

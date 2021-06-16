@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.example.moviecatalogue.R
+import com.example.moviecatalogue.data.source.local.entity.MovieEntity
 import com.example.moviecatalogue.data.source.local.entity.TvShowEntity
 import com.example.moviecatalogue.databinding.ActivityDetailTvShowBinding
 import com.example.moviecatalogue.databinding.ContentDetailTvShowBinding
@@ -20,13 +22,14 @@ class DetailTvShowActivity : AppCompatActivity() {
         const val EXTRA_TVSHOW = "extra_tvshow"
     }
 
+    private lateinit var activityDetailTvShowBinding: ActivityDetailTvShowBinding
     private lateinit var contentDetailTvShowBinding: ContentDetailTvShowBinding
     private lateinit var tvShowEntity: TvShowEntity
+    private lateinit var viewModel: DetailTvShowViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        val activityDetailTvShowBinding = ActivityDetailTvShowBinding.inflate(layoutInflater)
+        activityDetailTvShowBinding = ActivityDetailTvShowBinding.inflate(layoutInflater)
         contentDetailTvShowBinding = activityDetailTvShowBinding.detailContent
 
         setContentView(activityDetailTvShowBinding.root)
@@ -35,7 +38,7 @@ class DetailTvShowActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val factory = ViewModelFactory.getInstance(this)
-        val viewModel = ViewModelProvider(this, factory)[DetailTvShowViewModel::class.java]
+        viewModel = ViewModelProvider(this, factory)[DetailTvShowViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {
@@ -52,23 +55,48 @@ class DetailTvShowActivity : AppCompatActivity() {
                     tvShowEntity = tvShow
                     tvShowEntity.favorited = tvShow.favorited
                     populateTvShow(tvShow)
+
+                    favoriteState(tvShow.favorited)
                 })
             }
         }
-
     }
 
-    private fun populateTvShow(tvShowEntity: TvShowEntity) {
-        contentDetailTvShowBinding.tvItemTitle.text = tvShowEntity.title
-        contentDetailTvShowBinding.tvItemRating.text = tvShowEntity.rating.toString()
-        contentDetailTvShowBinding.tvItemGenre.text = tvShowEntity.genre
-        contentDetailTvShowBinding.tvItemDesc.text = tvShowEntity.description
+    private fun favoriteState(check: Boolean){
+        if (check){
+            contentDetailTvShowBinding.btnFavorite.background = ContextCompat.getDrawable(applicationContext, R.drawable.ic_baseline_favorite_24)
+        } else {
+            contentDetailTvShowBinding.btnFavorite.background = ContextCompat.getDrawable(applicationContext, R.drawable.ic_baseline_favorite_border_24)
+        }
+    }
+
+    private fun setFavorite(tvShow: TvShowEntity){
+        if (tvShow.favorited){
+            Toast.makeText(applicationContext, "Removed from favorite", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(applicationContext, "Added to favorite", Toast.LENGTH_SHORT).show()
+        }
+        viewModel.setFavorite(tvShow)
+    }
+
+    private fun populateTvShow(tvShow: TvShowEntity) {
+        contentDetailTvShowBinding.tvItemTitle.text = tvShow.title
+        contentDetailTvShowBinding.tvItemRating.text = tvShow.rating.toString()
+        contentDetailTvShowBinding.tvItemGenre.text = tvShow.genre
+        contentDetailTvShowBinding.tvItemDesc.text = tvShow.description
 
         Glide.with(this)
-            .load(tvShowEntity.imagePath)
+            .load(tvShow.imagePath)
             .centerCrop()
             .apply(RequestOptions.placeholderOf(R.drawable.ic_loading)
                 .error(R.drawable.ic_error))
             .into(contentDetailTvShowBinding.imagePoster)
+
+        contentDetailTvShowBinding.btnFavorite.setOnClickListener {
+            if (tvShow != null) {
+                setFavorite(tvShow)
+                Toast.makeText(applicationContext, "Write your message here", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 }

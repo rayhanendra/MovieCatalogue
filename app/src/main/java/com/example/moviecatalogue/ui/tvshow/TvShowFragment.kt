@@ -8,22 +8,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.moviecatalogue.R
-import com.example.moviecatalogue.databinding.FragmentTvshowsBinding
+import com.example.moviecatalogue.databinding.FragmentTvShowsBinding
 import com.example.moviecatalogue.viewmodel.ViewModelFactory
 import com.example.moviecatalogue.vo.Status
 
-
 class TvShowFragment : Fragment() {
 
-    private lateinit var binding: FragmentTvshowsBinding
+    private lateinit var binding: FragmentTvShowsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentTvshowsBinding.inflate(layoutInflater, container, false)
+        binding = FragmentTvShowsBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

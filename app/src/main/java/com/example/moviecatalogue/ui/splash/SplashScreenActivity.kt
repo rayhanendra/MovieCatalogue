@@ -8,7 +8,7 @@ import android.os.Looper
 import android.view.Window
 import android.view.WindowManager
 import com.example.moviecatalogue.R
-import com.example.moviecatalogue.ui.main.MainActivity
+import com.example.moviecatalogue.ui.menu.MenuActivity
 
 class SplashScreenActivity : AppCompatActivity() {
     private val splashTimeOut: Long = 3000
@@ -24,7 +24,7 @@ class SplashScreenActivity : AppCompatActivity() {
         this.setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, MenuActivity::class.java))
             finish()
         }, splashTimeOut)
     }

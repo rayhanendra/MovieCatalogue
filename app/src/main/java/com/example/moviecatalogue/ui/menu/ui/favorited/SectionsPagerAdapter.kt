@@ -1,4 +1,4 @@
-package com.example.moviecatalogue.ui.main
+package com.example.moviecatalogue.ui.menu.ui.favorited
 
 import android.content.Context
 import androidx.annotation.StringRes
@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.moviecatalogue.R
-import com.example.moviecatalogue.ui.movie.MovieFragment
-import com.example.moviecatalogue.ui.tvshow.TvShowFragment
+import com.example.moviecatalogue.ui.movie.favorited.MovieFavoritedFragment
+import com.example.moviecatalogue.ui.tvshow.favorited.TvShowFavoritedFragment
 
 class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
@@ -18,13 +18,13 @@ class SectionsPagerAdapter(private val mContext: Context, fm: FragmentManager) :
 
     override fun getItem(position: Int): Fragment =
         when(position) {
-            0 -> MovieFragment()
-            1 -> TvShowFragment()
+            0 -> MovieFavoritedFragment()
+            1 -> TvShowFavoritedFragment()
             else -> Fragment()
         }
-
 
     override fun getPageTitle(position: Int): CharSequence = mContext.resources.getString(TAB_TITLES[position])
 
     override fun getCount(): Int  = TAB_TITLES.size
+
 }

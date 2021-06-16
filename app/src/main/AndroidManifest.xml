@@ -11,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieCatalogue">
-        <activity android:name=".ui.favorite.favoriteTvShow.FavoriteActivity"></activity>
+        <activity
+            android:name=".ui.menu.MenuActivity"
+            android:label="@string/movie_catalogue"
+            />
+        <activity
+            android:name=".ui.favorite.favoriteTvShow.FavoriteActivity"
+            android:label="@string/title_favorited"
+            android:theme="@style/Theme.MovieCatalogue.NoActionBar"/>
         <activity
             android:name=".ui.splash.SplashScreenActivity"
             android:theme="@style/Theme.MovieCatalogue.NoActionBar">
@@ -24,24 +31,22 @@
         <activity
             android:name=".ui.tvshow.detailtvshow.DetailTvShowActivity"
             android:label="@string/title_activity_detail_tvshow"
-            android:parentActivityName=".ui.main.MainActivity"
+            android:parentActivityName=".ui.menu.MenuActivity"
             android:theme="@style/Theme.MovieCatalogue.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.main.MainActivity" />
+                android:value=".ui.menu.MenuActivity" />
         </activity>
         <activity
             android:name=".ui.movie.detailmovie.DetailMovieActivity"
             android:label="@string/title_activity_detail_movie"
-            android:parentActivityName=".ui.main.MainActivity"
+            android:parentActivityName=".ui.menu.MenuActivity"
             android:theme="@style/Theme.MovieCatalogue.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ui.main.MainActivity" />
+                android:value=".ui.menu.MenuActivity" />
         </activity>
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:label="@string/movie_catalogue"></activity>
+
     </application>
 
 </manifest>

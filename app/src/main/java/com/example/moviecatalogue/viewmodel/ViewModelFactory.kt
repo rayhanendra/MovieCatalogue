@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.moviecatalogue.data.source.MovieCatalogueRepository
 import com.example.moviecatalogue.di.Injection
+import com.example.moviecatalogue.ui.movie.favorited.MovieFavoritedViewModel
 import com.example.moviecatalogue.ui.movie.MovieViewModel
 import com.example.moviecatalogue.ui.movie.detailmovie.DetailMovieViewModel
 import com.example.moviecatalogue.ui.tvshow.TvShowViewModel
 import com.example.moviecatalogue.ui.tvshow.detailtvshow.DetailTvShowViewModel
+import com.example.moviecatalogue.ui.tvshow.favorited.TvShowFavoritedViewModel
 
 class ViewModelFactory private constructor(private val mMovieCatalogueRepository: MovieCatalogueRepository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -38,6 +40,12 @@ class ViewModelFactory private constructor(private val mMovieCatalogueRepository
             }
             modelClass.isAssignableFrom(DetailTvShowViewModel::class.java) -> {
                 return DetailTvShowViewModel(mMovieCatalogueRepository) as T
+            }
+            modelClass.isAssignableFrom(MovieFavoritedViewModel::class.java) -> {
+                return MovieFavoritedViewModel(mMovieCatalogueRepository) as T
+            }
+            modelClass.isAssignableFrom(TvShowFavoritedViewModel::class.java) -> {
+                return TvShowFavoritedViewModel(mMovieCatalogueRepository) as T
             }
             else -> throw Throwable("Unknown ViewModel class: " + modelClass.name)
         }
